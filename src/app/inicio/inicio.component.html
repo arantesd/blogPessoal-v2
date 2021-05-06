@@ -59,7 +59,8 @@
           </div>
 
     </div>
-   
+    <!--/menu postagens-->
+  
 
 
 
@@ -67,9 +68,7 @@
 
 
 
-
-
-  <!-- Modal -->
+  <!--modal-->
   <div class="modal fade" id="novaPostagem" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
@@ -92,7 +91,7 @@
           </div>
 
           <div class="form-grup pt-4">
-             <label for="texto">Escolha um tema ou <a href="">cadastre um novo</a>: </label>
+             <label for="texto">Escolha um tema ou <a data-dismiss="modal" routerLink='/tema'>cadastre um novo</a>: </label>
             <select name="tema" id="tema" class="form-control">
                 <option value="">Temas</option>
             </select>
@@ -100,9 +99,10 @@
         </div>
 
         <div class="modal-footer">
-          <button type="button" class="btn btn-warning" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-warning">Cancelar</button>
           <button type="button" class="btn btn-success">Publicar</button>
         </div>
       </div>
     </div>
   </div>
+   <!--/modal-->
