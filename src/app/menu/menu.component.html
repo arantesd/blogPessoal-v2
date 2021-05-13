@@ -6,26 +6,35 @@
 
     <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
         <ul class="navbar-nav mr-auto d-flex align-items-center">
+
+            <!--foto usuário-->
             <li class="nav-item active">
                 <img src="{{foto}}" alt="Foto usuário" width="50px" height="50px"
                     class="img-fluid">
             </li>
+            <!--/foto usuário-->
 
+            <!--nome usuário-->
             <li class="nav-item pl-3">
                 <p class="m-0 font-italic text-primary fs-16">Olá, {{nome}}</p>
             </li>
+            <!--/nome usuário-->
 
+            <!--link para editar informações-->
             <li class="nav-item pl-3">
                 <a href="">
                     <p class="text-primary fs-16 m-0"><i class="fa fa-pencil-square" aria-hidden="true"></i></p>
                 </a>
             </li>
+            <!--link para editar informações-->
         </ul>
 
+        <!--botão de saída-->
         <u class="navbar-nav ml-auto d-flex align-items-center">
             <li class="nav-item pl-3">
                 <a (click)='sair()' class="m-0 font-italic text-primary fs-16">Sair <i class="fa fa-sign-out" aria-hidden="true"></i></a>
             </li>
         </u>
+        <!--/botão de saída-->
     </div>
 </nav>
