@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { AuthService } from './../service/auth.service';
+import { User } from './../model/User';
+import { Tema } from './../model/Tema';
+import { TemaService } from './../service/tema.service';
+import { PostagemService } from './../service/postagem.service';
+import { Postagem } from './../model/Postagem';
 import { Router } from '@angular/router';
-import { environment } from 'src/environments/environment.prod';
-import { Postagem } from '../model/Postagem';
-import { Tema } from '../model/Tema';
-import { User } from '../model/User';
-import { AuthService } from '../service/auth.service';
-import { PostagemService } from '../service/postagem.service';
-import { TemaService } from '../service/tema.service';
+import { environment } from './../../environments/environment.prod';
+import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-inicio',
@@ -33,9 +34,9 @@ export class InicioComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    
+    window.scroll(0,0)
+
     if(environment.token == ''){
-      alert('Sua seção expirou, faça login novamente.')
       this.router.navigate(['/entrar'])
     }
 
@@ -50,14 +51,8 @@ export class InicioComponent implements OnInit {
   }
 
   findByIdTema(){
-    this.temaService.getByIdTema(this.idTema).subscribe((resp: Tema) => {
-     this.tema = resp
-    })
-  }
-
-  findByIdUser(){
-    this.authService.getByIdUser(this.idUser).subscribe((resp: User) => {
-      this.user = resp
+    this.temaService.getByIdTema(this.idTema).subscribe((resp: Tema) =>{
+      this.tema = resp
     })
   }
 
@@ -66,8 +61,14 @@ export class InicioComponent implements OnInit {
       this.listaPostagens = resp
     })
   }
+ 
+  findByIdUser(){
+    this.authService.getByIdUser(this.idUser).subscribe((resp: User) => {
+      this.user = resp
+    })
+  }
 
-  publicar(){ 
+  publicar(){
     this.tema.id = this.idTema
     this.postagem.tema = this.tema
 
@@ -77,10 +78,9 @@ export class InicioComponent implements OnInit {
     this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
       this.postagem = resp
       alert('Postagem realizada com sucesso!')
-      this.postagem = new Postagem() 
-      this.getAllPostagens() 
+      this.postagem = new Postagem()
+      this.getAllPostagens()
     })
-
   }
 
 }
